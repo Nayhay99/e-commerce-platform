@@ -29,8 +29,7 @@ export const createUserProfileDocument = async (userAuth , ...additionalData ) =
             email,
             createdAt,
             ...additionalData
-         })
-        
+         })       
 
       }catch(error){
          console.log('error creating user ', error.message)
@@ -42,16 +41,9 @@ export const createUserProfileDocument = async (userAuth , ...additionalData ) =
 export const auth = firebase.auth()
 export const firestore = firebase.firestore()
 
-// const provider = new firebase.auth.GoogleAuthProvider() //for sign in with google
-// provider.setCustomParameters({prompt : 'select_account'})
-// const popUp = auth.signInWithPopup(provider);
-// export const signInWithGoogle = () => popUp
-
-// export default firebase;
-
 var provider = new firebase.auth.GoogleAuthProvider();
 
-function googleSignin() {
+function signInWithGoogle() {
    firebase.auth()
    
    .signInWithPopup(provider).then(function(result) {
@@ -60,5 +52,5 @@ function googleSignin() {
       console.log("failure", error)
    });
 }
-export default googleSignin;
+export default signInWithGoogle;
 
